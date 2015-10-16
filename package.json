@@ -1,0 +1,37 @@
+{
+  "name": "pretend-platform",
+  "version": "1.0.0",
+  "description": "Pretend the current process is running on a given platform",
+  "repository": "shinnn/pretend-platform",
+  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+  "scripts": {
+    "pretest": "eslint --config @shinnn/node-legacy index.js test.js",
+    "test": "node test.js",
+    "coverage": "istanbul cover test.js"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "platform",
+    "platforms",
+    "pretend",
+    "simulate",
+    "simulation",
+    "imitate",
+    "imitation",
+    "mimic",
+    "mimicry",
+    "mock",
+    "modify",
+    "redefine",
+    "restore"
+  ],
+  "devDependencies": {
+    "@shinnn/eslint-config-node-legacy": "^1.0.0",
+    "eslint": "^1.9.0",
+    "istanbul": "^0.4.0",
+    "tape": "^4.2.2"
+  }
+}
