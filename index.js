@@ -12,7 +12,10 @@ module.exports = function pretendPlatform(platform) {
     );
   }
 
-  Object.defineProperty(process, 'platform', {value: platform});
+  if (process.platform !== platform) {
+    Object.defineProperty(process, 'platform', {value: platform});
+  }
+
   return platform;
 };
 

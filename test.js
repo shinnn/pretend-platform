@@ -14,16 +14,18 @@ test('pretendPlatform()', function(t) {
     'should have a function name.'
   );
 
-  t.strictEqual(
-    pretendPlatform('foo'),
-    'foo',
-    'should return the pretended platform.'
-  );
+  pretendPlatform('foo');
 
   t.strictEqual(
     process.platform,
     'foo',
     'should modify `process.platform`.'
+  );
+
+  t.strictEqual(
+    pretendPlatform('foo'),
+    'foo',
+    'should return the pretended platform.'
   );
 
   t.throws(
