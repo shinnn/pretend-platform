@@ -5,7 +5,7 @@
   "repository": "shinnn/pretend-platform",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --config @shinnn/node-legacy index.js test.js",
+    "pretest": "eslint --fix --config @shinnn/node-legacy index.js test.js",
     "test": "node test.js",
     "coverage": "istanbul cover test.js"
   },
@@ -29,9 +29,9 @@
     "restore"
   ],
   "devDependencies": {
-    "@shinnn/eslint-config-node-legacy": "^2.0.0",
-    "eslint": "^2.3.0",
-    "istanbul": "^0.4.2",
-    "tape": "^4.5.1"
+    "@shinnn/eslint-config-node-legacy": "^3.0.0",
+    "eslint": "^3.4.0",
+    "istanbul": "^0.4.5",
+    "tape": "^4.6.0"
   }
 }
