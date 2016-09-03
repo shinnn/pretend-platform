@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/shinnn/pretend-platform.svg?branch=master)](https://travis-ci.org/shinnn/pretend-platform)
 [![Build status](https://ci.appveyor.com/api/projects/status/yrdf0sfxj8rus90h/branch/master?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/pretend-platform/branch/master)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/pretend-platform.svg)](https://coveralls.io/github/shinnn/pretend-platform)
-[![devDependency Status](https://david-dm.org/shinnn/pretend-platform/dev-status.svg)](https://david-dm.org/shinnn/pretend-platform#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/shinnn/pretend-platform/dev-status.svg)](https://david-dm.org/shinnn/pretend-platform?type=dev)
 
 A [Node](https://nodejs.org/) module to pretend the current process is running on a given platform
 
@@ -62,6 +62,6 @@ A `String` preserving the original `process.platform`.
 
 ## License
 
-Copyright (c) 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2015 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
