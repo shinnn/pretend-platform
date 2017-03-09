@@ -6,7 +6,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/pretend-platform.svg)](https://coveralls.io/github/shinnn/pretend-platform)
 [![devDependencies Status](https://david-dm.org/shinnn/pretend-platform/dev-status.svg)](https://david-dm.org/shinnn/pretend-platform?type=dev)
 
-A [Node](https://nodejs.org/) module to pretend the current process is running on a given platform
+A [Node.js](https://nodejs.org/) module to pretend the current process is running on a given platform
 
 ```javascript
 const pretendPlatform = require('pretend-platform');
@@ -62,6 +62,6 @@ A `String` preserving the original `process.platform`.
 
 ## License
 
-Copyright (c) 2015 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2015 - 2017 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).

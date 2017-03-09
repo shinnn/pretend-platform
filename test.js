@@ -1,13 +1,11 @@
 'use strict';
 
-var pretendPlatform = require('./');
-var test = require('tape');
+const pretendPlatform = require('./');
+const test = require('tape');
 
-var originalPlatform = process.platform;
+const originalPlatform = process.platform;
 
-test('pretendPlatform()', function(t) {
-  t.plan(5);
-
+test('pretendPlatform()', t => {
   t.strictEqual(
     pretendPlatform.name,
     'pretendPlatform',
@@ -29,24 +27,30 @@ test('pretendPlatform()', function(t) {
   );
 
   t.throws(
-    pretendPlatform.bind(null, 1),
-    /TypeError.*1 is not a string\. Expected a platform name \(e\.g\. "darwin", "freebsd"\)\./,
+    () => pretendPlatform(1),
+    /TypeError.*Expected a platform name \(string\) for example 'linux', but got a non-string value 1 \(number\)\./,
     'should throw a type error when it takes a non-string argument.'
   );
 
   t.throws(
-    pretendPlatform.bind(null),
-    /TypeError.*undefined is not a string\./,
+    () => pretendPlatform(),
+    /TypeError.*Expected 1 argument \(string\), but got no arguments instead\./,
     'should throw a type error when it takes no arguments.'
   );
+
+  t.throws(
+    () => pretendPlatform('a', 'b'),
+    /TypeError.*Expected 1 argument \(string\), but got 2 arguments instead\./,
+    'should throw a type error when it takes too many arguments.'
+  );
+
+  t.end();
 });
 
-test('pretendPlatform.restore()', function(t) {
-  t.plan(4);
-
+test('pretendPlatform.restore()', t => {
   t.strictEqual(
     pretendPlatform.restore.name,
-    'restorePretendedPlatform',
+    'restore',
     'should have a function name.'
   );
 
@@ -69,14 +73,16 @@ test('pretendPlatform.restore()', function(t) {
     originalPlatform,
     'should do nothing when `process.platform` is not modified.'
   );
+
+  t.end();
 });
 
-test('pretendPlatform.ORIGINAL_PLATFORM', function(t) {
-  t.plan(1);
-
+test('pretendPlatform.ORIGINAL_PLATFORM', t => {
   t.strictEqual(
     pretendPlatform.ORIGINAL_PLATFORM,
     originalPlatform,
     'should preserve the original `process.platform`.'
   );
+
+  t.end();
 });

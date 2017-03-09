@@ -4,11 +4,24 @@
 */
 'use strict';
 
-module.exports = function pretendPlatform(platform) {
+const inspectWithKind = require('inspect-with-kind');
+
+function pretendPlatform(...args) {
+  const arglen = args.length;
+
+  if (arglen !== 1) {
+    throw new TypeError(`Expected 1 argument (string), but got ${
+      arglen === 0 ? 'no' : arglen
+    } arguments instead.`);
+  }
+
+  const [platform] = args;
+
   if (typeof platform !== 'string') {
     throw new TypeError(
-      String(platform) +
-      ' is not a string. Expected a platform name (e.g. "darwin", "freebsd").'
+      `Expected a platform name (string) for example 'linux', but got a non-string value ${
+        inspectWithKind(platform)
+      }.`
     );
   }
 
@@ -17,11 +30,12 @@ module.exports = function pretendPlatform(platform) {
   }
 
   return platform;
-};
+}
 
+module.exports = pretendPlatform;
 module.exports.ORIGINAL_PLATFORM = process.platform;
 
-module.exports.restore = function restorePretendedPlatform() {
+module.exports.restore = function restore() {
   if (process.platform !== module.exports.ORIGINAL_PLATFORM) {
     Object.defineProperty(process, 'platform', {value: module.exports.ORIGINAL_PLATFORM});
   }
