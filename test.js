@@ -1,6 +1,8 @@
 'use strict';
 
-const pretendPlatform = require('./');
+const osPlatform = require('os').platform;
+
+const pretendPlatform = require('.');
 const test = require('tape');
 
 const originalPlatform = process.platform;
@@ -24,6 +26,12 @@ test('pretendPlatform()', t => {
     pretendPlatform('foo'),
     'foo',
     'should return the pretended platform.'
+  );
+
+  t.strictEqual(
+    osPlatform(),
+    'foo',
+    'should modify the return value of `os.platform`.'
   );
 
   t.throws(
@@ -77,11 +85,22 @@ test('pretendPlatform.restore()', t => {
   t.end();
 });
 
-test('pretendPlatform.ORIGINAL_PLATFORM', t => {
+test('pretendPlatform.original', t => {
+  t.ok(
+    Reflect.ownKeys(pretendPlatform).includes('original'),
+    'should be enumerable.'
+  );
+
   t.strictEqual(
-    pretendPlatform.ORIGINAL_PLATFORM,
+    pretendPlatform.original,
     originalPlatform,
     'should preserve the original `process.platform`.'
+  );
+
+  t.throws(
+    () => pretendPlatform.original = 'another value', // eslint-disable-line no-return-assign
+    /^TypeError.*Cannot assign to read only property 'original'/,
+    'should be unoverwritable.'
   );
 
   t.end();

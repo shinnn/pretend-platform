@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/shinnn/pretend-platform.svg?branch=master)](https://travis-ci.org/shinnn/pretend-platform)
 [![Build status](https://ci.appveyor.com/api/projects/status/yrdf0sfxj8rus90h/branch/master?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/pretend-platform/branch/master)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/pretend-platform.svg)](https://coveralls.io/github/shinnn/pretend-platform)
-[![devDependencies Status](https://david-dm.org/shinnn/pretend-platform/dev-status.svg)](https://david-dm.org/shinnn/pretend-platform?type=dev)
 
 A [Node.js](https://nodejs.org/) module to pretend the current process is running on a given platform
 
@@ -40,7 +39,7 @@ It modifies [`process.platform`](https://nodejs.org/api/process.html#process_pro
 
 ### pretendPlatform.restore()
 
-Return: `String` ([`pretendPlatform.ORIGINAL_PLATFORM`](#pretendplatformoriginal_platform))
+Return: `String` ([`pretendPlatform.original`](#pretendplatformoriginal))
 
 It restores `process.platform` to the original value.
 
@@ -56,9 +55,11 @@ pretendPlatform.restore();
 process.platform; //=> 'linux'
 ```
 
-### pretendPlatform.ORIGINAL_PLATFORM
+### pretendPlatform.original
 
-A `String` preserving the original `process.platform`.
+Type: `String`
+
+The read-only property preserving the original `process.platform`.
 
 ## License
 

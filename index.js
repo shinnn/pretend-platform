@@ -32,12 +32,16 @@ function pretendPlatform(...args) {
   return platform;
 }
 
+Object.defineProperty(pretendPlatform, 'original', {
+  value: process.platform,
+  enumerable: true
+});
+
 module.exports = pretendPlatform;
-module.exports.ORIGINAL_PLATFORM = process.platform;
 
 module.exports.restore = function restore() {
-  if (process.platform !== module.exports.ORIGINAL_PLATFORM) {
-    Object.defineProperty(process, 'platform', {value: module.exports.ORIGINAL_PLATFORM});
+  if (process.platform !== pretendPlatform.original) {
+    Object.defineProperty(process, 'platform', {value: pretendPlatform.original});
   }
 
   return process.platform;
