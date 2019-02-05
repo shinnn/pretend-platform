@@ -5,7 +5,7 @@ node_js: node
 script: npm run-script pretest && npm run-script coverage
 jobs:
   include:
-  - dist: trusty
+  - dist: xenial
     after_success: npx istanbul-coveralls
   - os: windows
     script: node test.js
