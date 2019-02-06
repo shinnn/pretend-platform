@@ -2,10 +2,9 @@ branches:
   except: /^v\d/
 language: node_js
 node_js: node
-script: npm run-script pretest && npm run-script coverage
 jobs:
   include:
   - dist: xenial
-    after_success: npx istanbul-coveralls
+    after_success: node_modules/.bin/nyc report | npx coveralls
   - os: windows
     script: node test.js
