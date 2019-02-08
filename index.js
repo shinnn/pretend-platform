@@ -2,7 +2,9 @@
 
 const inspectWithKind = require('inspect-with-kind');
 
-function pretendPlatform(...args) {
+const originalPropertyDescriptor = Reflect.getOwnPropertyDescriptor(process, 'platform');
+
+module.exports = function pretendPlatform(...args) {
 	const arglen = args.length;
 
 	if (arglen !== 1) {
@@ -20,23 +22,22 @@ function pretendPlatform(...args) {
 	}
 
 	if (process.platform !== platform) {
-		Object.defineProperty(process, 'platform', {value: platform});
+		Object.defineProperty(process, 'platform', Object.assign({}, originalPropertyDescriptor, {value: platform})); // eslint-disable-line prefer-object-spread
 	}
 
 	return platform;
-}
-
-Object.defineProperty(pretendPlatform, 'original', {
-	enumerable: true,
-	value: process.platform
-});
-
-module.exports = pretendPlatform;
-
-module.exports.restore = function restore() {
-	if (process.platform !== pretendPlatform.original) {
-		Object.defineProperty(process, 'platform', {value: pretendPlatform.original});
-	}
-
-	return process.platform;
 };
+
+Object.defineProperties(module.exports, {
+	original: originalPropertyDescriptor,
+	restore: {
+		enumerable: true,
+		value: function restore() {
+			if (process.platform !== originalPropertyDescriptor.value) {
+				Object.defineProperty(process, 'platform', originalPropertyDescriptor);
+			}
+
+			return process.platform;
+		}
+	}
+});
