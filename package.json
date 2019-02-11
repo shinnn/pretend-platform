@@ -1,6 +1,6 @@
 {
 	"name": "pretend-platform",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Pretend the current process is running on a given platform",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"repository": "shinnn/pretend-platform",
@@ -35,7 +35,7 @@
 		"eslint": "^5.13.0",
 		"nyc": "^13.2.0",
 		"nyc-config-common": "^1.0.1",
-		"tape": "^4.9.2"
+		"tape": "^4.10.0"
 	},
 	"eslintConfig": {
 		"extends": "@shinnn"
