@@ -22,7 +22,7 @@ module.exports = function pretendPlatform(...args) {
 	}
 
 	if (process.platform !== platform) {
-		Object.defineProperty(process, 'platform', Object.assign({}, originalPropertyDescriptor, {value: platform})); // eslint-disable-line prefer-object-spread
+		Object.defineProperty(process, 'platform', {...originalPropertyDescriptor, value: platform});
 	}
 
 	return platform;
