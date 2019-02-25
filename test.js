@@ -97,9 +97,8 @@ test('pretendPlatform.original', t => {
 		'should preserve the original `process.platform`.'
 	);
 
-	t.throws(
-		() => pretendPlatform.original = 'another value', // eslint-disable-line no-return-assign
-		/^TypeError.*Cannot assign to read only property 'original'/u,
+	t.notOk(
+		Reflect.set(pretendPlatform, 'original', 'another value'),
 		'should be unoverwritable.'
 	);
 
