@@ -62,6 +62,4 @@ The read-only property preserving the original `process.platform`.
 
 ## License
 
-Copyright (c) 2015 - 2019 [Shinnosuke Watanabe](https://github.com/shinnn)
-
-Licensed under [the MIT License](./LICENSE).
+[ISC License](./LICENSE) © 2019 Shinnosuke Watanabe

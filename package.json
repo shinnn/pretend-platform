@@ -4,7 +4,7 @@
 	"description": "Pretend the current process is running on a given platform",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"repository": "shinnn/pretend-platform",
-	"license": "MIT",
+	"license": "ISC",
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc node test.js"
