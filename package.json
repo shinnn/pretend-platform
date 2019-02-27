@@ -1,6 +1,6 @@
 {
 	"name": "pretend-platform",
-	"version": "3.0.0-0",
+	"version": "3.0.0",
 	"description": "Pretend the current process is running on a given platform",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"repository": "shinnn/pretend-platform",
